@@ -1,0 +1,87 @@
+.SearchWrapper{
+    width: 100vw;
+    height: 55vh;
+    background-image: url('../../assets/images/search_background.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.Search{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0,0,0,0.7);
+}
+
+.Search > h1{
+    font-size: 1.8rem;
+    color: #fff;
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+}
+
+.Search > h1 > cite {
+    font-size: 1.4rem;
+    margin: 3px 0;
+    float: right;
+}
+
+.SearchInput {
+    width: 50%;
+    height: 13%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: stretch;
+    margin: 1.5rem 0;
+}
+
+.SearchInput > input{
+    flex-grow: 1;
+    padding: 1rem;
+    outline: none;
+    border: none;
+    border-radius: 10px 0 0 10px;
+    font-size: 1.1rem;
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+}
+
+.SearchInput > input:focus{
+    border-right: 2px solid #000;
+}
+
+.SearchIcon{
+    /* flex-grow: 1; */
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius:  0 10px 10px 0;
+    cursor: pointer;
+}
+
+.SearchIcon > img{
+    width: 60%;
+    height: 60%;
+}
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 768px){
+    .Search > h1{
+        margin: 1.2rem;
+        font-size: 1.3rem;
+        text-align: left;
+    }
+    .Search > h1 > cite {font-size: 0.8rem;}
+
+    .SearchInput{
+        width: 95%;
+        margin: 1rem 0;
+    }
+    .SearchInput > input{
+        font-size: 0.7rem;
+    }
+}

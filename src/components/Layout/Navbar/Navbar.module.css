@@ -1,0 +1,84 @@
+.Navbar{
+    width: 100%;
+    height: 12vh;
+    background: rgb(19, 32, 105);
+    padding: 1rem 5rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.NavbarBrand{
+    font-size: 2rem;
+    color: #fff;
+    text-decoration: none;
+    margin-right: 1rem;
+    font-family: 'Pacifico', monospace, Arial, Helvetica, sans-serif;
+    font-weight: normal;
+    margin-top: -10px;
+}
+
+.Nav{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.NavbarNavRight{
+    margin: 0 10px;
+    margin-left: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.NavbarNavRight > a{
+    color: #fff;
+    text-decoration: none;
+    margin: 0 0.9rem;
+    font-size: 1.2rem;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.DividerY {
+    width: 2px;
+    height: 80%;
+    background: rgba(255,255,255,0.4);
+    border-radius: 50px;
+}
+
+.NavbarNavLeft{
+    display: flex;
+    margin: 0 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.NavbarNavLeft >  a{
+    text-decoration: none;
+    color: #fff;
+    margin: 0 0.5rem;
+    font-size: 1rem;
+    letter-spacing: 3px;
+}
+
+.UploadPicture{
+    letter-spacing: normal !important;
+    background: rgb(104, 140, 199);
+    padding: 0.5rem 0.9rem;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    border-radius: 4px;
+}
+
+.UploadPicture:hover{
+    background: rgb(69, 107, 168);
+}
+
+@media screen and (max-width: 768px){
+    .Nav{
+        display: none;
+    }
+    .NavbarBrand{margin: 0;}
+    .Navbar{justify-content: center;}
+}

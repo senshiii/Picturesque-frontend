@@ -1,0 +1,90 @@
+.Auth{
+    width: 100%;
+    height: 88vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    background-color: #000000;
+    background-image: url("data:image/svg+xml,%3Csvg width='12' height='24' viewBox='0 0 12 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23f4f1f9' fill-opacity='0.05'%3E%3Cpath d='M2 0h2v12H2V0zm1 20c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM9 8c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zm-1 4h2v12H8V12z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.AuthImg, .AuthFormContainer {
+    height: 100%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.AuthImg h1{
+    font-family: 'Montserrat', Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin-bottom: 1.5rem;
+    color: #fff;
+}
+
+.AuthImg img{
+    width: 80%;
+    margin-bottom: 4rem;
+}
+
+.AuthForm{
+    width: 60%;
+    background: #fff;
+    margin: 1rem;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 1px 4px 8px -6px #fff;
+    text-align: start;
+    font-family: 'Monsterrat', Arial, Helvetica, sans-serif;
+}
+
+.FormEl{
+    margin: 0.75rem 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+}
+
+.FormEl > input{
+    margin: 5px 0;
+    padding: 8px;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid #000;
+}
+
+.SubmitBtn{
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    background: rgb(19, 38, 207);
+    outline: none;
+    border:none;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.SubmitBtn:hover{
+    background: rgb(16, 29, 148);
+}
+
+@media screen and (max-width: 768px){
+    .Auth{
+        flex-direction: column;
+    }
+    .AuthImg, .AuthFormContainer{
+        width: 100%;
+        height: auto;
+    }
+    .AuthImg img{
+        display: none;
+    }
+    .AuthForm{width: 80%;}
+    .AuthContainer{ padding: 0;}
+}

@@ -1,0 +1,9 @@
+.Upload{
+    width: 60vw;
+    position: fixed;
+    top: 25vh;
+    left: 20vw;
+    background: #fff;
+    color: black;
+    z-index: 2;
+}
