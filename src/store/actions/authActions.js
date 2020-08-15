@@ -41,6 +41,8 @@ export const authStart = () => {
 };
 
 export const authSuccess = (id, token) => {
+    localStorage.setItem('token', token);
+    localStorage.setItem('id', id);
     return {
         type: types.AUTH_SUCCESS,
         id,
@@ -56,6 +58,8 @@ export const authFail = (error) => {
 };
 
 export const logout = () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('id');
     return {
         type: types.AUTH_LOGOUT
     }

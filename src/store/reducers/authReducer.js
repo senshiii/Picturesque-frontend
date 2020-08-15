@@ -5,7 +5,8 @@ const initState = {
     token: null,
     isAuth: false,
     loading: false,
-    error: null
+    error: null,
+    images: null
 };
 
 const reducer = (state = initState, action) => {

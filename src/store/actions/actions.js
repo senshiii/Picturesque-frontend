@@ -1,5 +1,6 @@
 export {
     register,
     login,
-    logout
+    logout,
+    authSuccess
 } from './authActions';

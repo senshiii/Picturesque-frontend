@@ -7,3 +7,7 @@
 html,body{
     width: 100vw;
 }
+
+.grid-item{
+    width: 33%;
+}

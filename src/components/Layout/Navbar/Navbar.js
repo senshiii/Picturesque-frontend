@@ -14,9 +14,7 @@ const Navbar = (props) => {
 				<nav className={classes.NavbarNavLeft}>
 					<NavLink to="/about">About</NavLink>
 					<NavLink to="/api">API</NavLink>
-					<NavLink to="/add" className={classes.UploadPicture}>
-						Upload Picture
-					</NavLink>
+					{!props.isAuth && <NavLink to="/register" >Create</NavLink>}
 				</nav>
 				{!props.isAuth ? (
 					<nav className={classes.NavbarNavRight}>

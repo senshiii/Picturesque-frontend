@@ -54,7 +54,7 @@
 
 .SearchIcon{
     /* flex-grow: 1; */
-    background: #fff;
+    background: rgb(165, 241, 255);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -78,10 +78,16 @@
     .Search > h1 > cite {font-size: 0.8rem;}
 
     .SearchInput{
-        width: 95%;
+        width: 70%;
         margin: 1rem 0;
     }
     .SearchInput > input{
         font-size: 0.7rem;
+    }
+}
+
+@media screen and (max-width: 425px){
+    .SearchInput{
+        width: 95%;
     }
 }
