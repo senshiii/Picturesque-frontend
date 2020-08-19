@@ -1,5 +1,6 @@
 .Upload{
     width: 40vw;
+    height: auto;
     position: fixed;
     top: 5vh;
     left: 30vw;
@@ -24,19 +25,11 @@
 }
 
 .UploadForm > h2{
-    font-size: 1.75rem;
+    font-size: 1.5rem;
+    margin-right: 1rem;
     font-family: 'Monsterrat', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-.FileInput{
-    color: #fff;
-    background: rgb(14, 71, 192);
-    padding: 15px 30px;
-    font-size: 1.2rem;
-    border-radius: 8px;
-    box-shadow: 1px 4px 10px -6px #000;
-    cursor: pointer;
-}
 
 .Progress{
     font-weight: bolder;
@@ -45,8 +38,26 @@
 }
 
 .UploadedImg{
-    width: 65%;
+    width: 45%;
     max-width: 80%;
+}
+
+.Access{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Access > div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 10px;
+}
+
+input[type="checkbox"]{
+    margin-left: 3px;
+    cursor: pointer;
 }
 
 .ActionBtns{
@@ -55,7 +66,7 @@
     outline: none;
     border:none;
     font-size: 1rem;
-    border-radius: 6px;
+    border-radius: 3px;
     cursor:pointer;
 }
 
@@ -63,9 +74,10 @@
     background: rgb(82, 212, 82);
 }
 
-.ActionBtns:disabled{
-    background: rgb(121, 121, 121);
+.FileInput:first-child{
     color: #fff;
+    background: rgb(14, 71, 192);
+    box-shadow: 1px 4px 10px -6px #000;
 }
 
 .ActionBtns:last-child{

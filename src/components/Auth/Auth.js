@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 
@@ -15,7 +15,7 @@ const Auth = (props) => {
 	// const [ dp, setDp ] = useState();
 
 	if (props.isAuth) {
-		return <Redirect to="/" />;
+		return <Redirect to="/profile" />;
 	}
 
 	const registerHandler = () => {

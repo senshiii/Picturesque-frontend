@@ -1,0 +1,302 @@
+.ProfileWrapper{
+    width: 100%;
+    height: 88vh;
+    overflow-x: hidden;
+    position: relative;
+    background: #fff;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+/* PROFILE INFO */
+
+.ProfileInfo{
+    width: 20%;
+    height: 88vh;
+    position: sticky;
+    top: 0vh;
+    padding: 0.5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    color: #fff;
+    background: #cb2d3e;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #ef473a, #cb2d3e);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #ef473a, #cb2d3e); 
+}
+
+.DP{
+    width: 140px;
+    height: 140px;
+    margin: 10px 0;
+    align-self: center;
+    position: relative;
+}
+
+.DP_Edit{
+    position: absolute;
+    right: 15px;
+    bottom: 0;
+    color: rgb(51, 137, 250);
+}
+
+.DP > img{
+    width: 100%;
+    height: 100%;
+    clip-path: circle();
+}
+
+.Name{
+    font-size: 1.3rem;
+    font-family: 'Roboto', 'Courier New', Courier, monospace;
+    align-self: center;
+}
+
+.Bio{
+    width: 100%;
+    font-size: 0.8rem;
+    font-family: 'Monsterrat', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: 5px 0;
+    margin-left: 0;
+}
+
+.Bio > span{
+    font-size: 1.2rem;
+    display: inline-block;
+    margin: 2px 0;
+    font-family: monospace;
+}
+
+.Add_Bio{
+    display: inline-block;
+    text-align: center;
+    padding: 7px 5px;
+    width: 100%;
+    margin: 10px 0;
+    background: #fff;
+    font-family: 'Roboto', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border-radius: 6px;
+    font-weight: bold;
+    color: #000;
+}
+
+.Likes{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 5px 8px;
+    margin: 10px 0;
+    width: 100%;
+    color: #000;
+    background: #fff;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-family: 'Monsterrat', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.Socials{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 5px 0;
+}
+
+.Socials > h6{
+    font-size: initial;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.Socials *{
+    margin: 0 2.5px;
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+
+.Likes *{ margin: 0 2px; }
+
+/* PROFILE CONTENT */
+
+.ProfileContent{
+    width: 80%;
+    padding: 0.4rem;
+}
+
+.UploadSection{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0.7rem;
+    background: rgb(199, 199, 199);
+    border-radius: 4px;
+}
+
+.UploadSection > *{
+    margin: 5px 1rem;
+}
+
+.UploadSection > button{
+    padding: 7px 10px;
+    outline: none;
+    border: none;
+    background-color: rgb(122, 56, 223);
+    font-size: 1.2rem;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.UploadSection > button:hover{
+    background-color: rgb(106, 28, 224);
+}   
+
+.Storage{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.Storage > h3{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    letter-spacing: 2px;
+    margin-bottom: 2px;
+}
+
+.Storage > progress{
+    width: 100%;
+}
+
+.Storage > span {
+    font-size: 0.75rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+
+.Heading{
+    display:flex;
+    justify-content: flex-start;
+    align-items:center;
+    /* background: blue; */
+    padding: 3px 1rem;
+    margin: 10px 0;
+    margin-bottom: 0;
+}
+
+.Heading > h2{
+    flex-grow: 1;
+    font-family: 'Roboto', 'Courier New', Courier, monospace;
+}
+
+.Filter{
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgb(26, 165, 165);
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.Filter > ion-icon{
+    font-size: 1.2rem;
+    color: rgb(26, 165, 165);
+}
+
+.Filter > select{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding: 3px 5px;
+    margin: 0 2px;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+
+.Filter > select * {
+    display: inline-block;
+    padding: 3px;
+}
+
+.Filter > select::-ms-expand {
+    display: none;
+}
+
+/* ------------------------------------- */
+/* MEDIA QUESRIES */
+/* ------------------------------------- */
+
+@media screen and (max-width: 2500px){
+    .Bio > span{
+        font-size: 1.2rem;
+        font-weight: normal;
+        
+    }
+    .Name {
+        font-size: 1.8rem;
+    }
+}
+
+@media screen and (max-width: 1300px){
+    .Bio{
+        font-size: 0.8rem;
+    }
+}
+
+@media screen and (max-width: 768px){
+    .ProfileWrapper{
+        flex-direction: column;
+        height: auto;
+    }
+    .ProfileInfo{
+        width: 100%;
+        height: auto;
+        position: static;
+        clip-path: none;
+        align-items: center;
+        padding-bottom: 10%;
+        clip-path: polygon(0 0,100% 0, 100% 100%, 0 95%);
+    }
+    .ProfileContent{ padding-top: 2%; width: 100%; }
+    .Bio{
+        margin: 5px 2rem;
+    }
+    .Likes{
+        justify-content: center;
+    }
+    .Bio > span { display: none; }
+    .Socials{ margin-bottom: 15px; }
+    .Socials *{ font-size: 1.3rem; }
+    .UploadSection{
+        flex-direction: column;
+    }
+    .Storage{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 425px){
+    .ProfileWrapper{
+        height: auto;
+    }
+    .ProfileInfo{
+        width: 100%;
+        height: auto;
+        clip-path: none;
+        position: relative;
+        align-items: center;
+        padding-bottom: 10%;
+        clip-path: polygon(0 0,100% 0, 100% 100%, 0 95%);
+    }
+    .Likes{
+        justify-content: center;
+    }
+    .ProfileContent {
+        padding-top: 2%;
+        width: 100%;
+    }
+}
+

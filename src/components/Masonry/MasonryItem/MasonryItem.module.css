@@ -1,0 +1,66 @@
+.MasonryItem{
+    width: 100%;
+    padding: 6px;
+    margin: 10px 0;
+    cursor: pointer;
+    border: .05em solid rgb(0, 0, 0);
+    border-radius: 2px;
+    box-shadow: 1px 4px 10px -6px rgb(129, 128, 128);
+    transition: all 0.1s ease-out;
+}
+
+.MasonryItem:hover{
+    box-shadow: 1px 4px 13px -4px rgb(39, 39, 39);
+    /* transform: translateY(-2px); */
+}
+
+.MasonryItem > img{
+    width: 100%;
+    margin: 3px 0;
+}
+
+.Info{
+    display: flex;
+    margin: 0;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 7px;
+    margin-top: -5px;
+    border-radius: 0 0 4px 4px;
+}
+
+.Info *{ margin: 0 3px; }
+
+.Info > h5{
+    flex-grow: 1;
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    font-weight: normal;
+}
+
+.DP{
+    width: 30px;
+    height: 30px;
+    border-radius: 50px;
+}
+
+.Delete{
+    margin-left: auto;
+    padding: 7px 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(248, 23, 23);
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.Delete:hover{
+    background: rgb(206, 28, 28);
+}
+
+@media screen and (max-width: 800px){
+    .MasonryItem{
+        width: 100%;
+    }
+}

@@ -2,37 +2,39 @@ import * as types from '../types';
 import axios from 'axios';
 
 export const register = (name, email, password) => (dispatch) => {
-    dispatch(authStart());
-    axios.post('http://localhost:8080/auth/register', {
-        name,
-        email,
-        password
-    })
-    .then(res => {
-        console.log(res);
-        dispatch(authSuccess(res.data.user.id, res.data.token))
-    })
-    .catch(err => {
-        console.log(err);
-        dispatch(authFail(err));
-    })
+	dispatch(authStart());
+	axios
+		.post('http://localhost:8080/auth/register', {
+			name,
+			email,
+			password
+		})
+		.then((res) => {
+			console.log(res);
+			dispatch(authSuccess(res.data.user.id, res.data.token));
+		})
+		.catch((err) => {
+			console.log(err);
+			dispatch(authFail(err));
+		});
 };
 
-export const login = (email, password) => dispatch => {
-    dispatch(authStart());
-    axios.post('http://localhost:8080/auth/login', {
-        email,
-        password
-    })
-    .then(res => {
-        console.log(res);
-        dispatch(authSuccess(res.data.user.id, res.data.token))
-    })
-    .catch(err => {
-        console.log(err);
-        dispatch(authFail(err));
-    });
-}
+export const login = (email, password) => (dispatch) => {
+	dispatch(authStart());
+	axios
+		.post('http://localhost:8080/auth/login', {
+			email,
+			password
+		})
+		.then((res) => {
+			console.log(res);
+			dispatch(authSuccess(res.data.user.id, res.data.token));
+		})
+		.catch((err) => {
+			console.log(err);
+			dispatch(authFail(err));
+		});
+};
 
 export const authStart = () => {
 	return {
@@ -41,14 +43,14 @@ export const authStart = () => {
 };
 
 export const authSuccess = (id, token) => {
-    localStorage.setItem('token', token);
-    localStorage.setItem('id', id);
-    return {
-        type: types.AUTH_SUCCESS,
-        id,
-        token
-    }
-}
+	localStorage.setItem('token', token);
+	localStorage.setItem('id', id);
+	return {
+		type: types.AUTH_SUCCESS,
+		id,
+		token
+	};
+};
 
 export const authFail = (error) => {
 	return {
@@ -58,9 +60,9 @@ export const authFail = (error) => {
 };
 
 export const logout = () => {
-    localStorage.removeItem('token');
-    localStorage.removeItem('id');
-    return {
-        type: types.AUTH_LOGOUT
-    }
-}
+	localStorage.removeItem('token');
+	localStorage.removeItem('id');
+	return {
+		type: types.AUTH_LOGOUT
+	};
+};

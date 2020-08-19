@@ -6,6 +6,7 @@
   animation: load1 1s infinite ease-in-out;
   width: 1em;
   height: 4em;
+  max-height: 5em;
 }
 .Loader {
   color: #164288;

@@ -6,8 +6,18 @@
 
 html,body{
     width: 100vw;
+    overflow-x: hidden;
 }
 
-.grid-item{
-    width: 33%;
+a {
+    text-decoration: none;
+}
+
+a:active{
+    color: initial;
+}
+
+button{
+    outline: none;
+    border: none;
 }
