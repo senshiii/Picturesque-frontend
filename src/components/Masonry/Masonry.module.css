@@ -8,10 +8,17 @@
 }
 
 .MasonryColumn{
-    width: 33%;
+    width: 32%;
     height: auto;
     padding: 5px;
-    margin: 0;
+    margin: 0 0.5%;
+}
+
+.NoImgs{
+    margin-top: 2rem;
+    widows: 100%;
+    text-align: center;
+    font-family: 'Monsterrat', 'Courier New', Courier, monospace;
 }
 
 @media screen and (max-width: 800px){

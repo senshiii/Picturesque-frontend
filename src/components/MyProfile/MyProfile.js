@@ -29,8 +29,7 @@ const Profile = (props) => {
 	let view = null;
 	if (props.loading) {
 		view = (
-			<div>
-				<p>Loading Profile Info</p>
+			<div style={{textAlign: 'center', marginTop: '20vh'}} >
 				<Spinner />
 			</div>
 		);

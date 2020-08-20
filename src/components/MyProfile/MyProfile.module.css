@@ -121,6 +121,8 @@
 
 .ProfileContent{
     width: 80%;
+    height: auto;
+    min-height: 88vh;
     padding: 0.4rem;
 }
 

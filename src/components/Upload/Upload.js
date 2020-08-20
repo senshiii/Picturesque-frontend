@@ -16,7 +16,7 @@ const Upload = (props) => {
 	const [ load, setLoad ] = useState(false);
 	const [ access, setAccess ] = useState('public');
 	const { uploadFile, done, progress, error } = useUpload();
-
+	const [ tags, setTags ] = useState('');
 	const { addImg, id, token, closeUpload } = props;
 
 	useEffect(
@@ -25,6 +25,7 @@ const Upload = (props) => {
 				const img = {
 					url: done,
 					access,
+					tags,
 					size: access === 'public' ? 0 : file.size / 1024 / 1024
 				};
 				axios
@@ -42,7 +43,7 @@ const Upload = (props) => {
 					});
 			}
 		},
-		[ done, addImg, id, token, access, file.size, closeUpload ]
+		[ done, addImg, id, token, access, file.size, closeUpload, tags ]
 	);
 
 	const uploadHandler = useCallback(
@@ -89,6 +90,17 @@ const Upload = (props) => {
 								/>
 							</div>
 						</div>
+						{access === 'public' && (
+							<textarea
+								className={classes.Tags}
+								draggable="false"
+								placeholder="Enter Tags. Tags begin with '#'. For only a single tag, using # is not required. Max 5 tags allowed. First 5 are taken. Rest are ignored."
+								value={tags}
+								onChange={e => setTags(e.target.value.trim())}
+							>
+								{tags}
+							</textarea>
+						)}
 						<div>
 							{file ? (
 								<button onClick={uploadHandler} disabled={!file} className={classes.ActionBtns}>

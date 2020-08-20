@@ -1,3 +1,11 @@
+.Home{
+    width: 100vw;
+    height: auto;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 .SearchWrapper{
     width: 100vw;
     height: 55vh;
@@ -9,6 +17,7 @@
 
 .Search{
     width: 100%;
+    padding: 0 0.9rem;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -67,6 +76,48 @@
     height: 60%;
 }
 
+.Heading{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Heading > h1{
+    font-family: 'Pacifico', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin: 0 1rem;
+    font-size: 3rem;
+    letter-spacing: 3px;
+}
+
+.Heading > div{
+    width: 50px;
+    margin-top: 10px;
+    height: 1px;
+    background: #000;
+}
+
+.SearchTag{
+    display: flex;
+    justify-content: flex-start;
+    margin: 10px;
+    align-items: center;
+    font-family: 'Roboto', 'Courier New', Courier, monospace;
+}
+
+.Tag{
+    display: flex;
+    align-items: center;
+    padding: 3px 7px;
+    background: rgb(93, 206, 235);
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: 'Roboto', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    border-radius: 6px;
+    margin: 3px 5px;
+    cursor: pointer;
+}
+
 /* MEDIA QUERIES */
 
 @media screen and (max-width: 768px){
@@ -89,5 +140,9 @@
 @media screen and (max-width: 425px){
     .SearchInput{
         width: 95%;
+    }
+
+    .Heading > h1{
+        font-size: 1.5rem;
     }
 }
