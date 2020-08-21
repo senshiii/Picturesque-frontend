@@ -12,13 +12,17 @@ import Logout from './components/Logout/Logout';
 const App = (props) => {
 	useEffect(
 		() => {
-			let token = localStorage.getItem('token');
-			let id = localStorage.getItem('id');
-			if (token && id) props.setAuth(id, token);
+			if(!props.isAuth){
+				console.log('Auto-Logging In');
+				let token = localStorage.getItem('token');
+				let id = localStorage.getItem('id');
+				if (token && id) props.setAuth(id, token);
+			}
 		},
 		[ props ]
 	);
 
+	console.log('App');
 	return (
 		<div
 			className="App"
@@ -36,10 +40,16 @@ const App = (props) => {
 	);
 };
 
+const mapStateToProps = state => {
+	return {
+		isAuth: state.auth.isAuth
+	}
+}
+
 const mapDispatchToProps = (dispatch) => {
 	return {
 		setAuth: (id, token) => dispatch(actions.authSuccess(id, token))
 	};
 };
 
-export default connect(null, mapDispatchToProps)(memo(App));
+export default connect(mapStateToProps, mapDispatchToProps)(memo(App));

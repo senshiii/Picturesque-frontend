@@ -7,5 +7,6 @@ export {
 export {
     profile,
     dispatchAddImage,
-    delImg
+    delImg,
+    clearProfile
 } from './profileActions'

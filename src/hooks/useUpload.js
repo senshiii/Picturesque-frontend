@@ -1,5 +1,6 @@
 import { useState, useCallback } from 'react';
 import rootRef from '../firebase/firebase';
+import { v4 } from 'uuid';
 
 const useUpload = () => {
 	const [ progress, setProgress ] = useState('');
@@ -7,7 +8,8 @@ const useUpload = () => {
 	const [ error, setError ] = useState();
 
 	const uploadFile = useCallback((file) => {
-		const task = rootRef.child(`images/public/${file.name}`).put(file);
+		let name = v4() + '.' + file.name.split('.')[1];
+		const task = rootRef.child(`images/${name}`).put(file);
 		task.on(
 			'state_changed',
 			(snap) => {
@@ -20,8 +22,8 @@ const useUpload = () => {
 			},
 			() => {
 				task.snapshot.ref.getDownloadURL().then((downloadUrl) => {
-					setProgress('Saving image...');
-					setDone(downloadUrl);
+					setProgress('Saving...');
+					setDone({ name, dUrl: downloadUrl });
 				});
 			}
 		);

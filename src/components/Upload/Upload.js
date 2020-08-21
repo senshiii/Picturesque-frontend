@@ -23,8 +23,9 @@ const Upload = (props) => {
 		() => {
 			if (done) {
 				const img = {
-					url: done,
+					url: done.dUrl,
 					access,
+					name: done.name,
 					tags,
 					size: access === 'public' ? 0 : file.size / 1024 / 1024
 				};

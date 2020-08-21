@@ -62,3 +62,9 @@ export const profile = (id) => (dispatch) => {
 			dispatch(profileFail(err));
 		});
 };
+
+export const clearProfile = () => {
+	return {
+		type: types.CLEAR_PROFILE
+	}
+}

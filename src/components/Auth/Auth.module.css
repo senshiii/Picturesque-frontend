@@ -61,6 +61,8 @@
 
 .SubmitBtn{
     padding: 0.5rem 1rem;
+    width: 120px;
+    height: 40px;
     font-size: 1rem;
     background: rgb(19, 38, 207);
     outline: none;

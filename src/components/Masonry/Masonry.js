@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { connect } from 'react-redux';
 
 import classes from './Masonry.module.css';
 import MasonryItem from './MasonryItem/MasonryItem';
 import * as actions from '../../store/actions/actions';
+import rootRef from '../../firebase/firebase';
 
 const Masonry = (props) => {
 	let imgCols = [ [], [], [] ];
@@ -20,13 +21,30 @@ const Masonry = (props) => {
 		if (x >= 3) x = 0;
 	}
 
+	const { delImg } = props;
+
+	const deleteImageHandler = useCallback(
+		(name, userId, imgId) => {
+			let delRef = rootRef.child(`images/${name}`);
+			delRef
+				.delete()
+				.then(() => {
+					delImg(userId, imgId);
+				})
+				.catch((err) => {
+					console.log(err);
+				});
+		},
+		[ delImg ]
+	);
+
 	let masonryView = null;
 	let emptyCheck = imgCols.filter((el) => el.length > 0);
 	if (emptyCheck.length > 0) {
 		let col1 = imgCols[0].map((el) => (
 			<MasonryItem
 				profile={props.profile}
-				delete={() => props.delImg(props.id, el._id)}
+				delete={() => deleteImageHandler(el.name, props.id, el._id)}
 				key={el._id}
 				src={el.dataUrl}
 				created={new Date(el.createdAt).toLocaleDateString()}
@@ -38,7 +56,7 @@ const Masonry = (props) => {
 		let col2 = imgCols[1].map((el) => (
 			<MasonryItem
 				profile={props.profile}
-				delete={() => props.delImg(props.id, el._id)}
+				delete={() => deleteImageHandler(el.name, props.id, el._id)}
 				key={el._id}
 				src={el.dataUrl}
 				created={new Date(el.createdAt).toLocaleDateString()}
@@ -50,7 +68,7 @@ const Masonry = (props) => {
 		let col3 = imgCols[2].map((el) => (
 			<MasonryItem
 				profile={props.profile}
-				delete={() => props.delImg(props.id, el._id)}
+				delete={() => deleteImageHandler(el.name, props.id, el._id)}
 				key={el._id}
 				src={el.dataUrl}
 				created={new Date(el.createdAt).toLocaleDateString()}
@@ -68,7 +86,7 @@ const Masonry = (props) => {
 		);
 	} else {
 		masonryView = (
-			<div className={classes.NoImgs} >
+			<div className={classes.NoImgs}>
 				<h1>Uhh..No Images Here..</h1>
 			</div>
 		);

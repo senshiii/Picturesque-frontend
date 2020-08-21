@@ -27,7 +27,7 @@ export const login = (email, password) => (dispatch) => {
 			password
 		})
 		.then((res) => {
-			console.log(res);
+			// console.log(res);
 			dispatch(authSuccess(res.data.user.id, res.data.token));
 		})
 		.catch((err) => {
@@ -53,6 +53,7 @@ export const authSuccess = (id, token) => {
 };
 
 export const authFail = (error) => {
+	console.log('Dispatching AuthFail Action');
 	return {
 		type: types.AUTH_FAIL,
 		error

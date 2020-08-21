@@ -26,7 +26,7 @@ const reducer = (state = initialState, action) => {
 			return {
 				...state,
 				loading: false,
-				loadError: action.error,
+				error: action.error,
 				profile: {
 					...state.profile
 				}
@@ -51,6 +51,11 @@ const reducer = (state = initialState, action) => {
 					images: state.profile.images.filter((el) => el._id != action.id)
 				}
 			};
+		case types.CLEAR_PROFILE:
+			return {
+				...state,
+				profile: null
+			}
 		default:
 			return state;
 	}

@@ -54,6 +54,17 @@
     align-self: center;
 }
 
+.Email{
+    display: flex;
+    width: 100%;
+    margin: 5px 0;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.9rem;
+    font-weight: 600;
+    font-family: monospace, 'Courier New', Courier, monospace;
+}
+
 .Bio{
     width: 100%;
     font-size: 0.8rem;
@@ -69,17 +80,22 @@
     font-family: monospace;
 }
 
-.Add_Bio{
+.AddBio{
     display: inline-block;
     text-align: center;
-    padding: 7px 5px;
+    padding: 10px 5px;
     width: 100%;
     margin: 10px 0;
-    background: #fff;
-    font-family: 'Roboto', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background: #ca1729 ;
     border-radius: 6px;
     font-weight: bold;
-    color: #000;
+    color: #fff;
+    cursor: pointer;
+    font-family: monospace;
+}
+
+.AddBio:hover{
+    box-shadow: 4px 4px 10px -6px #000;
 }
 
 .Likes{
@@ -113,6 +129,26 @@
     margin: 0 2.5px;
     font-size: 1.3rem;
     cursor: pointer;
+}
+
+.CompleteYourProfile{
+    width: 100%;
+    margin: 7px 0;
+    padding: 0.7rem;
+    background: white;
+    border-radius: 6px;
+    color: black;
+    font-family: 'Monsterrat', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.CompleteYourProfile ol{
+    width: 80%;
+    margin: 5px auto;
+    text-align: left;
+}
+
+.CompleteYourProfile li{
+    font-size: 0.9rem;
 }
 
 .Likes *{ margin: 0 2px; }

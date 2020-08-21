@@ -2,10 +2,14 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 
+// Components Import
 import classes from './Auth.module.css';
 import RegisterSVG from '../../assets/logos/register.svg';
-import LoginSVG from '../../assets/logos/login.svg';
+import Spinner from '../UI/Spinner/Spinner';
+// Actions Import
 import * as actions from '../../store/actions/actions';
+// Resources Import
+import LoginSVG from '../../assets/logos/login.svg';
 
 const Auth = (props) => {
 	const [ name, setName ] = useState('');
@@ -125,7 +129,8 @@ const Auth = (props) => {
 
 const mapStateToProps = (state) => {
 	return {
-		isAuth: state.auth.isAuth
+		isAuth: state.auth.isAuth,
+		loading: state.auth.loading
 	};
 };
 

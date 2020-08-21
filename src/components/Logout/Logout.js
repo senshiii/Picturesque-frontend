@@ -4,13 +4,15 @@ import { Redirect } from 'react-router-dom';
 import * as actions from '../../store/actions/actions';
 
 const Logout = (props) => {
-    const [logout, setlogout] = useState(false)
-    useEffect(
+	const [ logout, setlogout ] = useState(false);
+	useEffect(
 		() => {
-            props.logout();
-            setlogout(true);
+			console.log('Mounting Logout');
+			setlogout(true);
+			props.logout();
+			props.clear();
 		},
-		[ props ]
+		[]
 	);
 
 	let view = logout ? <Redirect to="/" /> : null;
@@ -26,7 +28,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		logout: () => dispatch(actions.logout())
+		logout: () => dispatch(actions.logout()),
+		clear: () => dispatch(actions.clearProfile())
 	};
 };
 

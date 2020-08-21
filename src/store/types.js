@@ -12,3 +12,4 @@ export const EDIT_PROFILE = 'EDIT_PROFILE';
 export const DELETE_PROFILE = 'DELETE_PROFILE';
 export const ADD_IMG = 'ADD_IMG';
 export const DEL_IMG = 'DEL_IMG';
+export const CLEAR_PROFILE = "CLEAR_PROFILE";
