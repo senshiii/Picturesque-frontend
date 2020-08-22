@@ -19,17 +19,6 @@
     background: linear-gradient(to top, #ef473a, #cb2d3e); 
 }
 
-.Switch{
-    background: #fff;
-    color: #000;
-    display: flex;
-    align-items:center;
-    justify-content: center;
-    margin: 7px 0;
-    padding: 7px 5px;
-    border-radius: 6px;
-
-}
 
 .ProfileInfo > div{
     margin: 0 2rem;
@@ -47,12 +36,6 @@
     position: relative;
 }
 
-.DP_Edit{
-    position: absolute;
-    right: 15px;
-    bottom: 0;
-    color: rgb(51, 137, 250);
-}
 
 .DP > img{
     width: 100%;
@@ -113,26 +96,6 @@
     cursor: pointer;
 }
 
-.CompleteYourProfile{
-    width: 100%;
-    margin: 7px 0;
-    padding: 0.7rem;
-    background: white;
-    border-radius: 6px;
-    color: black;
-    font-family: 'Monsterrat', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
-
-.CompleteYourProfile ol{
-    width: 80%;
-    margin: 5px auto;
-    text-align: left;
-}
-
-.CompleteYourProfile li{
-    font-size: 0.9rem;
-}
-
 /* PROFILE CONTENT */
 
 .ProfileContent{
@@ -143,57 +106,6 @@
     margin: 0 auto;
 }
 
-.UploadSection{
-    width: 100%;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 0.7rem;
-    background: rgb(199, 199, 199);
-    border-radius: 4px;
-}
-
-.UploadSection > *{
-    margin: 5px 1rem;
-}
-
-.UploadSection > button{
-    padding: 7px 10px;
-    outline: none;
-    border: none;
-    background-color: rgb(122, 56, 223);
-    font-size: 1.2rem;
-    color: #fff;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.UploadSection > button:hover{
-    background-color: rgb(106, 28, 224);
-}   
-
-.Storage{
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    justify-content: flex-start;
-    align-items: flex-start;
-}
-
-.Storage > h3{
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    letter-spacing: 2px;
-    margin-bottom: 2px;
-}
-
-.Storage > progress{
-    width: 100%;
-}
-
-.Storage > span {
-    font-size: 0.75rem;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
-}
 
 .Heading{
     display:flex;
@@ -210,39 +122,6 @@
     font-family: 'Roboto', 'Courier New', Courier, monospace;
 }
 
-.Filter{
-    padding: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid rgb(26, 165, 165);
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.Filter > ion-icon{
-    font-size: 1.2rem;
-    color: rgb(26, 165, 165);
-}
-
-.Filter > select{
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    padding: 3px 5px;
-    margin: 0 2px;
-    border: none;
-    cursor: pointer;
-    outline: none;
-}
-
-.Filter > select * {
-    display: inline-block;
-    padding: 3px;
-}
-
-.Filter > select::-ms-expand {
-    display: none;
-}
 
 /* ------------------------------------- */
 /* MEDIA QUESRIES */
@@ -276,10 +155,6 @@
         text-align: justify;
     }
     .Socials { width: 75%; }
-    .UploadSection{
-        flex-direction: column;
-    }
-    .Storage{ width: 100%; }
 }
 
 

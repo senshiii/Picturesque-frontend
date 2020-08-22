@@ -32,7 +32,7 @@
 }
 
 .AuthForm{
-    width: 60%;
+    width: 90%;
     background: #fff;
     margin: 1rem;
     padding: 1.5rem;
@@ -76,17 +76,47 @@
     background: rgb(16, 29, 148);
 }
 
+.SubmitBtn:disabled{
+    background: rgb(4, 4, 59);
+    color: #aaa;
+    cursor: progress;
+}
+
+.SubmitandError{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.ErrorAlert{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 20px;
+    font-size: 1.1rem;
+    color: red;
+}
+
+.ErrorAlert > ion-icon{
+    font-size: 1.5rem;
+}
+
+/* ------------------- */
+/* MEDIA QUERIES */
+/* ------------------- */
+
 @media screen and (max-width: 768px){
     .Auth{
         flex-direction: column;
+        height: auto;
     }
     .AuthImg, .AuthFormContainer{
         width: 100%;
         height: auto;
     }
+    .AuthFormContainer{ padding: 0; }
     .AuthImg img{
         display: none;
     }
     .AuthForm{width: 80%;}
-    .AuthContainer{ padding: 0;}
 }

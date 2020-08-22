@@ -10,18 +10,18 @@ import Spinner from '../UI/Spinner/Spinner';
 
 import * as actions from '../../store/actions/actions';
 
-const Profile = (props) => {
-	if (!props.isAuth) props.history.goBack();
+const MyProfile = (props) => {
+	// if (!props.isAuth) props.history.goBack();
 
 	const [ filter, setFilter ] = useState('All');
 	const [ showUpload, setShowUpload ] = useState(false);
 
 	useEffect(
 		() => {
-			console.log(props.profile);
+			// console.log(props.profile);
 			if (props.isAuth && props.profile === null) {
-				console.log('Profile Use effect');
-				props.getProfileInfo(props.id);
+				// console.log('Profile Use effect');
+				props.getMyProfileInfo(props.id, props.token);
 			}
 		},
 		[ props ]
@@ -29,14 +29,24 @@ const Profile = (props) => {
 
 	let view = null;
 	if (props.loading) {
-		console.log('Waiting for Profile');
+		// console.log('Waiting for Profile');
 		view = (
-			<div style={{ textAlign: 'center', marginTop: '20vh' }}>
+			<div
+				style={{
+					textAlign: 'center',
+					margin: '0 auto',
+					width: '90vw',
+					height: '88vh',
+					display: 'flex',
+					justifyContent: 'center',
+					alignItems: 'center'
+				}}
+			>
 				<Spinner />
 			</div>
 		);
 	} else if (!props.loading && props.profile !== null) {
-		console.log('Rendering MyProfile');
+		// console.log('Rendering MyProfile');
 		const { name, bio, storage, images, dpUrl, email, socials } = props.profile;
 		let subView = (
 			<Fragment>
@@ -73,50 +83,60 @@ const Profile = (props) => {
 			<div className={classes.ProfileWrapper}>
 				{showUpload && <Upload history={props.history} closeUpload={() => setShowUpload(false)} />}
 				<div className={classes.ProfileInfo}>
-					<div className={classes.DP}>
-						<img src={dpUrl ? dpUrl : UP} alt="DP" />
-						<NavLink
-							to={{
-								pathname: '/profile',
-								search: '?v=settings'
-							}}
-							className={classes.DP_Edit}
-						>
-							<ion-icon size="large" name="add-circle" />
+					<div className={classes.Left}>
+						<div className={classes.DP}>
+							<img src={dpUrl ? dpUrl : UP} alt="DP" />
+							<NavLink
+								to={{
+									pathname: '/profile',
+									search: '?v=settings'
+								}}
+								className={classes.DP_Edit}
+							>
+								<ion-icon size="large" name="add-circle" />
+							</NavLink>
+						</div>
+						<p className={classes.Email}>
+							<ion-icon name="mail" />&nbsp;{email}
+						</p>
+						<NavLink className={classes.Switch} to="/profile?v=settings">
+							<ion-icon name="settings-outline" />
+							&nbsp; Settings
 						</NavLink>
 					</div>
-					<h3 className={classes.Name}> {name} </h3>
-					<p className={classes.Email}>
-						<ion-icon name="mail" />&nbsp;{email}
-					</p>
-					{bio && (
-						<p className={classes.Bio}>
-							<span>Bio</span>
-							<br />
-							{bio}
-						</p>
-					)}
-					{/* <div className={classes.Likes}>
-						<ion-icon style={{ color: 'red' }} size="small" name="heart-circle" />
-						<span>Likes: </span>
-						<span>100</span>
-					</div> */}
-					{socials.length > 0 && (
-						<div className={classes.Socials}>
-							<h6>Follow Me: </h6>
-							<ion-icon name="logo-facebook" />
-							<ion-icon name="logo-instagram" />
-							<ion-icon name="logo-pinterest" />
-						</div>
-					)}
-					<div className={classes.CompleteYourProfile} >
-						<h4>Some quick steps...</h4>
-						<ol>
-							{!bio && <li>Add Bio</li>}
-							{!socials.length > 0 && <li>Add Social Links</li>}
-							{!dpUrl && <li>Add Display Picture</li>}
-						</ol>
-						<NavLink to="/profile?v=settings" className={classes.AddBio} >Complete Your Profile</NavLink>
+					<div className={classes.Right}>
+						<h3 className={classes.Name}> {name} </h3>
+						{
+							<p className={classes.Bio}>
+								<span>Bio</span>
+								<br />
+								{/* {bio} */}
+								Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+								has been the industry's standard dummy text ever since the 1500s, when an unknown
+								printer took a galley of type and scrambled it to make a type specimen book. It has
+								survived not only five centuries, but also the leap into electronic typesetting,
+								remaining essentially unchanged.
+							</p>
+						}
+						{
+							<div className={classes.Socials}>
+								<h6>Follow Me: </h6>
+								<ion-icon name="logo-facebook" />
+								<ion-icon name="logo-instagram" />
+								<ion-icon name="logo-pinterest" />
+							</div>
+						}
+						{/* <div className={classes.CompleteYourProfile}>
+							<h4>Some quick steps...</h4>
+							<ol>
+								{!bio && <li>Add Bio</li>}
+								{!socials.length > 0 && <li>Add Social Links</li>}
+								{!dpUrl && <li>Add Display Picture</li>}
+							</ol>
+							<NavLink to="/profile?v=settings" className={classes.AddBio}>
+								Complete Your Profile
+							</NavLink>
+						</div> */}
 					</div>
 				</div>
 				<div className={classes.ProfileContent}>{subView}</div>
@@ -130,6 +150,7 @@ const mapStateToProps = (state) => {
 	return {
 		isAuth: state.auth.isAuth,
 		id: state.auth.id,
+		token: state.auth.token,
 		profile: state.profile.profile,
 		loading: state.profile.loading
 	};
@@ -137,8 +158,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		getProfileInfo: (id) => dispatch(actions.profile(id))
+		getMyProfileInfo: (id, token) => dispatch(actions.profile(id, token))
 	};
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(memo(Profile));
+export default connect(mapStateToProps, mapDispatchToProps)(memo(MyProfile));

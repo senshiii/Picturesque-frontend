@@ -21,3 +21,8 @@ button{
     outline: none;
     border: none;
 }
+
+#root{
+    width: 100vw;
+    height: auto;
+}

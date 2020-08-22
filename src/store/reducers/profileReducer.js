@@ -38,7 +38,7 @@ const reducer = (state = initialState, action) => {
 				profile: {
 					...state.profile,
 					storage: action.storage,
-					images: state.profile.images.concat(action.img)
+					images: [action.img, ...state.profile.images]
 				}
 			};
 		case types.DEL_IMG:

@@ -1,23 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
 import * as actions from '../../store/actions/actions';
 
 const Logout = (props) => {
-	const [ logout, setlogout ] = useState(false);
 	useEffect(
 		() => {
+			console.log(props);
 			console.log('Mounting Logout');
-			setlogout(true);
 			props.logout();
 			props.clear();
+			props.history.replace('/')
 		},
-		[]
+		[props]
 	);
-
-	let view = logout ? <Redirect to="/" /> : null;
-
-	return view;
+	return null;
 };
 
 const mapStateToProps = (state) => {

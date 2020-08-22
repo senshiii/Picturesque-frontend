@@ -15,7 +15,7 @@ const Upload = (props) => {
 	const [ file, setFile ] = useState(false);
 	const [ load, setLoad ] = useState(false);
 	const [ access, setAccess ] = useState('public');
-	const { uploadFile, done, progress, error } = useUpload();
+	const { uploadFile, done, progress } = useUpload();
 	const [ tags, setTags ] = useState('');
 	const { addImg, id, token, closeUpload } = props;
 

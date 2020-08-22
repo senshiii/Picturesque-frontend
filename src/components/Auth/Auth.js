@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 
 // Components Import
 import classes from './Auth.module.css';
 import RegisterSVG from '../../assets/logos/register.svg';
-import Spinner from '../UI/Spinner/Spinner';
+// import Spinner from '../UI/Spinner/Spinner';
 // Actions Import
 import * as actions from '../../store/actions/actions';
 // Resources Import
@@ -16,17 +16,32 @@ const Auth = (props) => {
 	const [ email, setEmail ] = useState('');
 	const [ pass, setPass ] = useState('');
 	const [ confPass, setConfPass ] = useState('');
-	// const [ dp, setDp ] = useState();
+	const [alert, setAlert] = useState(null);
+
+	const { error } = props;
+	useEffect(() => {
+		if(error){
+			setAlert(error.message);
+			setName('')
+			setEmail('')
+			setConfPass('')
+			setPass('')
+		}
+	}, [error, setAlert])
 
 	if (props.isAuth) {
 		return <Redirect to="/profile" />;
 	}
 
 	const registerHandler = () => {
-		props.registerUser(name, email, pass);
+		if(pass === confPass){
+			props.registerUser(name, email, pass);
+		}else{
+			setAlert('Password\'s do not match.');
+		}
 	};
 
-	const loginHandler = () => {
+	const loginHandler = () => {		
 		props.loginUser(email, pass);
 	};
 
@@ -75,9 +90,18 @@ const Auth = (props) => {
 					onChange={(e) => setConfPass(e.target.value)}
 				/>
 			</div>
-			<button className={classes.SubmitBtn} onClick={registerHandler}>
-				Register
-			</button>
+			<div className={classes.SubmitandError}>
+				<button disabled={props.loading} className={classes.SubmitBtn} onClick={registerHandler}>
+					Login
+				</button>
+				{alert && (
+					<div className={classes.ErrorAlert}>
+						<ion-icon name="alert-circle-outline" />
+						&nbsp;
+						<p> {error.message} </p>
+					</div>
+				)}
+			</div>
 		</div>
 	);
 
@@ -106,9 +130,18 @@ const Auth = (props) => {
 						onChange={(e) => setPass(e.target.value)}
 					/>
 				</div>
-				<button className={classes.SubmitBtn} onClick={loginHandler}>
-					Login
-				</button>
+				<div className={classes.SubmitandError}>
+					<button disabled={props.loading} className={classes.SubmitBtn} onClick={loginHandler}>
+						Login
+					</button>
+					{alert && (
+						<div className={classes.ErrorAlert}>
+							<ion-icon name="alert-circle-outline" />
+							&nbsp;
+							<p> {error.message} </p>
+						</div>
+					)}
+				</div>
 			</div>
 		);
 
@@ -130,7 +163,8 @@ const Auth = (props) => {
 const mapStateToProps = (state) => {
 	return {
 		isAuth: state.auth.isAuth,
-		loading: state.auth.loading
+		loading: state.auth.loading,
+		error: state.auth.error
 	};
 };
 

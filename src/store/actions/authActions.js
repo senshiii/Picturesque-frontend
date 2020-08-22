@@ -10,12 +10,11 @@ export const register = (name, email, password) => (dispatch) => {
 			password
 		})
 		.then((res) => {
-			console.log(res);
 			dispatch(authSuccess(res.data.user.id, res.data.token));
 		})
 		.catch((err) => {
-			console.log(err);
-			dispatch(authFail(err));
+			dispatch(authFail(err.response.data));
+			setTimeout(() => dispatch(authFail(null)), 5000)
 		});
 };
 
@@ -27,12 +26,10 @@ export const login = (email, password) => (dispatch) => {
 			password
 		})
 		.then((res) => {
-			// console.log(res);
 			dispatch(authSuccess(res.data.user.id, res.data.token));
 		})
 		.catch((err) => {
-			console.log(err);
-			dispatch(authFail(err));
+			dispatch(authFail(err.response.data));
 		});
 };
 
@@ -53,7 +50,6 @@ export const authSuccess = (id, token) => {
 };
 
 export const authFail = (error) => {
-	console.log('Dispatching AuthFail Action');
 	return {
 		type: types.AUTH_FAIL,
 		error

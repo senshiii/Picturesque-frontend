@@ -5,9 +5,11 @@ import { connect } from 'react-redux';
 import * as actions from './store/actions/actions';
 import Navbar from './components/Layout/Navbar/Navbar';
 import Home from './components/Home/Home';
-import Profile from './components/MyProfile/MyProfile';
+import MyProfile from './components/MyProfile/MyProfile';
 import Auth from './components/Auth/Auth';
 import Logout from './components/Logout/Logout';
+import Profile from './components/Profile/Profile';
+import Footer from './components/Layout/Footer/Footer';
 
 const App = (props) => {
 	useEffect(
@@ -26,16 +28,18 @@ const App = (props) => {
 	return (
 		<div
 			className="App"
-			style={{ width: '100vw !important', overflowX: 'hiddden', height: 'auto', margin: 0, padding: 0 }}
+			style={{ width: '100vw', overflowX: 'hiddden', height: 'auto', margin: 0, padding: 0 }}
 		>
 			<Navbar />
 			<Switch>
 				<Route path="/" exact component={Home} />
-				<Route path="/profile" component={Profile} />
+				<Route path="/profile" component={MyProfile} />
 				<Route path="/register" component={Auth} />
 				<Route path="/login" render={() => <Auth login />} />
 				<Route path="/logout" component={Logout} />
+				<Route path='/:userId/profile' component={Profile}/>
 			</Switch>
+			<Footer />
 		</div>
 	);
 };
@@ -48,7 +52,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		setAuth: (id, token) => dispatch(actions.authSuccess(id, token))
+		setAuth: (id, token) => dispatch(actions.authSuccess(id, token)),
 	};
 };
 

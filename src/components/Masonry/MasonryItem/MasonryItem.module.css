@@ -32,10 +32,15 @@
 
 .Info *{ margin: 0 3px; }
 
-.Info > h5{
+.Name,.Nme:active{
     flex-grow: 1;
     font-family: 'Roboto', Arial, Helvetica, sans-serif;
     font-weight: normal;
+    color: #000;
+}
+
+.Name:hover{
+    color: rgb(138, 138, 138);
 }
 
 .DP{

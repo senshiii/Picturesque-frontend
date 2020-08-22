@@ -15,6 +15,7 @@ const Home = (props) => {
 				axios
 					.get('http://localhost:8080/images')
 					.then((res) => {
+						// console.log(res.data);
 						setImages(res.data);
 					})
 					.catch((err) => {

@@ -49,10 +49,14 @@ export const delImg = (userId, imgId) => (dispatch) => {
 		});
 };
 
-export const profile = (id) => (dispatch) => {
+export const profile = (id, token) => (dispatch) => {
 	dispatch(profileStart());
 	axios
-		.get(`http://localhost:8080/user/${id}/profile`)
+		.get(`http://localhost:8080/user/profile`, {
+			headers: {
+				authorization: `Bearer ${token}`
+			}
+		})
 		.then((res) => {
 			// console.log('My Profile Info', res);
 			dispatch(profileSuccess(res.data));
@@ -66,5 +70,5 @@ export const profile = (id) => (dispatch) => {
 export const clearProfile = () => {
 	return {
 		type: types.CLEAR_PROFILE
-	}
-}
+	};
+};

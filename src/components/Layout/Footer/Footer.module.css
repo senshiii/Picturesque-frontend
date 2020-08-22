@@ -1,0 +1,78 @@
+.Footer{
+    width: 100vw;
+    height: 30vh;
+    background: #000;
+    color: #fff;
+    font-family: 'Roboto', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.Links{
+    text-align: center;
+    padding: 0;
+    width: 100%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Links > *{margin: 0 30px;}
+
+.Left > h1{
+    font-size: 3rem;
+    font-family: 'Pacifico', 'Courier New', Courier, monospace;
+    cursor: pointer;
+    margin-left: -5rem;
+}
+
+.Right{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.Right > a{
+    color:#fff;
+    margin: 10px 0;
+}
+
+.Divider{
+    height: 80%;
+    width: 0.1px;
+    background: rgba(121, 121, 121, 0.5);
+}
+
+.Author{
+    width: 100%;
+    height: 10%;
+    text-align:center;
+    padding: 5px 0;
+    font-size: 0.9rem;
+}
+
+@media screen and (max-width: 800px){
+    .Footer{
+        height: auto;
+    }
+    .Links{
+        flex-direction: column-reverse;
+    }
+    .Links > *{margin: 10px 0;}
+    .Divider{
+        width: 80%;
+        height: 0.1px;
+    }
+    .Left > h1{
+        margin: 0;
+    }
+    .Right{
+        flex-direction: row;
+    }
+    .Right > a{
+        margin: 10px;
+    }
+    .Author{
+        padding-bottom: 20px;
+    }
+}

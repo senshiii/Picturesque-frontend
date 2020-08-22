@@ -6,7 +6,6 @@ const initState = {
     isAuth: false,
     loading: false,
     error: null,
-    images: null
 };
 
 const reducer = (state = initState, action) => {
